@@ -46,6 +46,14 @@ class FaceView: UIView {
     
     weak var dataSource: FaceViewDataSource?
     
+    
+    func scale(gesture: UIPinchGestureRecognizer) {
+        if gesture.state == .Changed {
+            scale *= gesture.scale
+            gesture.scale = 1 
+        }
+    }
+    
     var faceRadius: CGFloat {
         return min(bounds.size.width, bounds.size.height) / 2 * scale
     }
