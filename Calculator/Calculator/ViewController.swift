@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var display: UILabel!
     
     var userIsInTheMiddleOfTypingNumber: Bool = false
+    var Brain = CalculatorBrain()
     
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
@@ -25,12 +26,29 @@ class ViewController: UIViewController {
         
     }
     
-    var operandStack = Array<Double>()
+    @IBAction func operate(sender: UIButton) {
+        if userIsInTheMiddleOfTypingNumber {
+            enter()
+        }
+        
+        if let operation = sender.currentTitle {
+            if let result = Brain.performOperation(operation) {
+                displayValue = result
+            } else {
+                displayValue = 0
+            }
+        }
+    }
+    
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingNumber = false
-        operandStack.append(displayValue)
-        println("operandStack: \(operandStack)")
+        if let result = Brain.pushOperand(displayValue) {
+            displayValue = result
+        } else {
+            displayValue = 0
+        }
+        
     }
     
     var displayValue: Double {
@@ -43,34 +61,6 @@ class ViewController: UIViewController {
             userIsInTheMiddleOfTypingNumber = false
         }
     }
-    @IBAction func operate(sender: UIButton) {
-        let operation = sender.currentTitle!
-        if userIsInTheMiddleOfTypingNumber {
-            enter()
-        }
-        switch operation {
-            case "×": performOperation{ $0 * $1 }
-            case "÷": performOperation{ $1 / $0 }
-            case "+": performOperation{ $0 + $1 }
-            case "−": performOperation{ $1 - $0 }
-            case "√": performOperation{ sqrt($0) }
-//          case "−": performOperation({ (op1, op2) in op1 - op2 })
-            default: break
-        }
-    }
-    
-    func performOperation(operation: (Double, Double) -> Double) {
-        if operandStack.count >= 2 {
-            displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
-            enter()
-        }
-    }
-    
-    func performOperation(operation: Double -> Double) {
-        if operandStack.count >= 1 {
-            displayValue = operation(operandStack.removeLast())
-            enter()
-        }
-    }
+   
 }
 
