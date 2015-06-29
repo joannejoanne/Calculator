@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Psychologist View Controller-->
+        <!--Psychologist-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PsychologistViewController" customModule="Psychologist" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How satisfied are you?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Jse-Xc-1TV">
-                                <rect key="frame" x="16" y="20" width="361" height="56"/>
+                                <rect key="frame" x="16" y="64" width="361" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="361" id="Yfz-cJ-yfe"/>
                                 </constraints>
@@ -40,6 +40,9 @@
                                         <exclude reference="1B9-PO-Y7M"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <segue destination="VvG-UG-rpZ" kind="showDetail" identifier="happy" id="5vw-KU-api"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBQ-3a-9jQ">
                                 <rect key="frame" x="201" y="278" width="199" height="44"/>
@@ -57,6 +60,9 @@
                                         <exclude reference="fco-tw-eKk"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <segue destination="VvG-UG-rpZ" kind="showDetail" identifier="sad" id="apG-NW-glD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uz7-cn-d6s">
                                 <rect key="frame" x="201" y="330" width="199" height="44"/>
@@ -72,6 +78,9 @@
                                         <exclude reference="vV5-9Z-5iS"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <segue destination="VvG-UG-rpZ" kind="showDetail" identifier="meh" id="m5r-IV-47i"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -98,9 +107,11 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Psychologist" id="UOJ-l3-47J"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="666" y="40"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="NbV-Fi-teD">
@@ -108,7 +119,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNi-n9-DdE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <splitViewController id="X8u-Xc-1YM" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="masterViewController" id="33K-mx-AM8"/>
+                        <segue destination="Ydt-mF-PjJ" kind="relationship" relationship="masterViewController" id="33K-mx-AM8"/>
                         <segue destination="VvG-UG-rpZ" kind="relationship" relationship="detailViewController" id="Exg-LL-O1L"/>
                     </connections>
                 </splitViewController>
@@ -127,8 +138,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t3R-JO-9ta" customClass="FaceView" customModule="Psychologist" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="t3R-JO-9ta" customClass="FaceView" customModule="Psychologist" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <userDefinedRuntimeAttributes>
@@ -165,7 +176,28 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="800" y="121"/>
+            <point key="canvasLocation" x="-96" y="149"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Kp2-ER-YI1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ydt-mF-PjJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="83o-0m-uuh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Yok-fY-UNK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T8l-gm-Hwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="914" y="-776"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="m5r-IV-47i"/>
+    </inferredMetricsTieBreakers>
 </document>
