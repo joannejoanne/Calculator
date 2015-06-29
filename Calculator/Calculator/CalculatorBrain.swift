@@ -40,6 +40,10 @@ class CalculatorBrain {
         
     }
     
+    func cleanOperand() {
+        opStack = []
+    }
+    
     init() {
         knownOps["×"] = Op.BinaryOperation("×", *)
         knownOps["÷"] = Op.BinaryOperation("÷") { $1 / $0 }

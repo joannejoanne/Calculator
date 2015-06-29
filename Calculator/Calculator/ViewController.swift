@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     var Brain = CalculatorBrain()
     var decimal = false
     
+    
+    
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
         if digit == "." && decimal == true {
@@ -34,6 +36,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func operate(sender: UIButton) {
+        
         if userIsInTheMiddleOfTypingNumber {
             enter()
         }
@@ -41,7 +44,11 @@ class ViewController: UIViewController {
         if let operation = sender.currentTitle {
             if operation == "π" {
                 displayValue = Double(M_PI)
-                
+                enter()
+            }
+            else if operation == "C" {
+                Brain.cleanOperand()
+                displayValue = 0
             }
             else {
                 if let result = Brain.performOperation(operation) {
