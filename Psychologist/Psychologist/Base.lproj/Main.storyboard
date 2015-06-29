@@ -41,7 +41,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="VvG-UG-rpZ" kind="showDetail" identifier="happy" id="5vw-KU-api"/>
+                                    <segue destination="a2Z-gc-8JH" kind="showDetail" identifier="happy" id="5vw-KU-api"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBQ-3a-9jQ">
@@ -61,7 +61,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="VvG-UG-rpZ" kind="showDetail" identifier="sad" id="apG-NW-glD"/>
+                                    <segue destination="a2Z-gc-8JH" kind="showDetail" identifier="sad" id="apG-NW-glD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uz7-cn-d6s">
@@ -79,17 +79,28 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="VvG-UG-rpZ" kind="showDetail" identifier="meh" id="m5r-IV-47i"/>
+                                    <segue destination="a2Z-gc-8JH" kind="showDetail" identifier="meh" id="m5r-IV-47i"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wiw-cJ-l1t">
+                                <rect key="frame" x="274" y="389" width="52" height="30"/>
+                                <state key="normal" title="nothing">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nothing:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z2R-Fx-htZ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Wiw-cJ-l1t" firstAttribute="top" secondItem="uz7-cn-d6s" secondAttribute="bottom" constant="15" id="3oM-Gq-6er"/>
                             <constraint firstItem="SBQ-3a-9jQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7GY-Ix-2ER"/>
                             <constraint firstItem="SBQ-3a-9jQ" firstAttribute="trailing" secondItem="xQt-kI-IzJ" secondAttribute="trailing" id="EDX-4q-tOo"/>
                             <constraint firstItem="Jse-Xc-1TV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="FZP-Yj-Dhz"/>
                             <constraint firstItem="uz7-cn-d6s" firstAttribute="top" secondItem="SBQ-3a-9jQ" secondAttribute="bottom" constant="8" symbolic="YES" id="HID-OF-4Rn"/>
                             <constraint firstItem="uz7-cn-d6s" firstAttribute="leading" secondItem="SBQ-3a-9jQ" secondAttribute="leading" id="QGp-Wu-sl0"/>
+                            <constraint firstItem="Wiw-cJ-l1t" firstAttribute="centerX" secondItem="uz7-cn-d6s" secondAttribute="centerX" id="dmc-de-amU"/>
                             <constraint firstItem="xQt-kI-IzJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="id4-ya-geh"/>
                             <constraint firstItem="Jse-Xc-1TV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="irp-eO-iXm"/>
                             <constraint firstItem="SBQ-3a-9jQ" firstAttribute="leading" secondItem="xQt-kI-IzJ" secondAttribute="leading" id="kA9-3e-J9M"/>
@@ -108,10 +119,13 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Psychologist" id="UOJ-l3-47J"/>
+                    <connections>
+                        <segue destination="VvG-UG-rpZ" kind="showDetail" identifier="nothing" id="QSK-cL-S31"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="666" y="40"/>
+            <point key="canvasLocation" x="1478" y="40"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="NbV-Fi-teD">
@@ -119,7 +133,7 @@
                 <splitViewController id="X8u-Xc-1YM" sceneMemberID="viewController">
                     <connections>
                         <segue destination="Ydt-mF-PjJ" kind="relationship" relationship="masterViewController" id="33K-mx-AM8"/>
-                        <segue destination="VvG-UG-rpZ" kind="relationship" relationship="detailViewController" id="Exg-LL-O1L"/>
+                        <segue destination="a2Z-gc-8JH" kind="relationship" relationship="detailViewController" id="Exg-LL-O1L"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNi-n9-DdE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -164,6 +178,7 @@
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="OpF-rQ-flf"/>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="itR-OA-IVS"/>
                     </toolbarItems>
+                    <navigationItem key="navigationItem" id="vLT-zM-XLX"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="faceView" destination="t3R-JO-9ta" id="gnY-3I-VJl"/>
@@ -176,7 +191,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-96" y="149"/>
+            <point key="canvasLocation" x="716" y="149"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Kp2-ER-YI1">
@@ -196,8 +211,27 @@
             </objects>
             <point key="canvasLocation" x="914" y="-776"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zeR-hh-JWo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a2Z-gc-8JH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eWN-qF-EMa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VvG-UG-rpZ" kind="relationship" relationship="rootViewController" id="zkt-9W-4O6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yyc-OW-lNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-96" y="149"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="QSK-cL-S31"/>
         <segue reference="m5r-IV-47i"/>
     </inferredMetricsTieBreakers>
 </document>
