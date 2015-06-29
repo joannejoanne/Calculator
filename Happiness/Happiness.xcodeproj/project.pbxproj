@@ -411,6 +411,7 @@
 				963F12C41B414DEE00BD7BE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		963F12C51B414DEE00BD7BE9 /* Build configuration list for PBXNativeTarget "HappinessTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +420,7 @@
 				963F12C71B414DEE00BD7BE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
