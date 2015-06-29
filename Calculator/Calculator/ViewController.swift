@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         else if digit == "." && decimal == false {
             decimal = true
         }
-        println("digit = \(digit)")
+
         if userIsInTheMiddleOfTypingNumber {
             display.text = display.text! + digit
         } else {
@@ -39,10 +39,16 @@ class ViewController: UIViewController {
         }
         
         if let operation = sender.currentTitle {
-            if let result = Brain.performOperation(operation) {
-                displayValue = result
-            } else {
-                displayValue = 0
+            if operation == "π" {
+                displayValue = Double(M_PI)
+                
+            }
+            else {
+                if let result = Brain.performOperation(operation) {
+                    displayValue = result
+                } else {
+                    displayValue = 0
+                }
             }
         }
     }
