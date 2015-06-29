@@ -45,28 +45,29 @@ class ViewController: UIViewController {
         }
         
         if let operation = sender.currentTitle {
-            if operation == "C" {
-                Brain.cleanOperand()
-                history.text = "History: "
+
+            if let result = Brain.performOperation(operation) {
+                displayValue = result
+            } else {
                 displayValue = 0
             }
-            else {
-                if let result = Brain.performOperation(operation) {
-                    displayValue = result
-                } else {
-                    displayValue = 0
-                }
-                history.text = history.text! + sender.currentTitle! + " "
-            }
+            history.text = history.text! + sender.currentTitle! + " "
+        
         }
         
     }
+    @IBAction func clear() {
+        Brain = CalculatorBrain()
+        displayValue = nil
+        history.text = "History: "
+        
+    }
     
-    
+
     @IBAction func enter() {
         userIsInTheMiddleOfTypingNumber = false
         decimal = false
-        if let result = Brain.pushOperand(displayValue) {
+        if let result = Brain.pushOperand(displayValue!) {
             displayValue = result
             history.text = history.text! + result.description + ", "
         } else {
@@ -75,13 +76,24 @@ class ViewController: UIViewController {
         
     }
     
-    var displayValue: Double {
+    var displayValue: Double? {
         get {
-            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+            if let displayText = display.text {
+                if let displayNumber = NSNumberFormatter().numberFromString(display.text!) {
+                    return displayNumber.doubleValue
+                }
+            }
+            return nil
+
         }
         
         set {
-            display.text = "\(newValue)"
+            if (newValue != nil) {
+                display.text = "\(newValue)"
+            }
+            else {
+                display.text = "0"
+            }
             userIsInTheMiddleOfTypingNumber = false
         }
     }
