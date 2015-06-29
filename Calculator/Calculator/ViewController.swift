@@ -16,6 +16,10 @@ class ViewController: UIViewController {
     var decimal = false
     
     
+    @IBOutlet weak var history: UILabel!
+
+
+    
     
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
@@ -32,7 +36,6 @@ class ViewController: UIViewController {
             display.text = digit
             userIsInTheMiddleOfTypingNumber = true
         }
-        
     }
     
     @IBAction func operate(sender: UIButton) {
@@ -58,6 +61,7 @@ class ViewController: UIViewController {
                 }
             }
         }
+        history.text = history.text! + sender.currentTitle! + " "
     }
     
     
@@ -66,6 +70,7 @@ class ViewController: UIViewController {
         decimal = false
         if let result = Brain.pushOperand(displayValue) {
             displayValue = result
+            history.text = history.text! + result.description + ", "
         } else {
             displayValue = 0
         }
