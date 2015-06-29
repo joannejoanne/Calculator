@@ -45,12 +45,9 @@ class ViewController: UIViewController {
         }
         
         if let operation = sender.currentTitle {
-            if operation == "π" {
-                displayValue = Double(M_PI)
-                enter()
-            }
-            else if operation == "C" {
+            if operation == "C" {
                 Brain.cleanOperand()
+                history.text = "History: "
                 displayValue = 0
             }
             else {
@@ -59,9 +56,10 @@ class ViewController: UIViewController {
                 } else {
                     displayValue = 0
                 }
+                history.text = history.text! + sender.currentTitle! + " "
             }
         }
-        history.text = history.text! + sender.currentTitle! + " "
+        
     }
     
     

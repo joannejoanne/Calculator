@@ -13,7 +13,8 @@ class CalculatorBrain {
         case Operand(Double)
         case UnaryOperation(String, Double -> Double)
         case BinaryOperation(String, (Double, Double) -> Double)
-    
+        case NullaryOperation(String, () -> Double)
+        
         var description: String {
             get {
                 switch self {
@@ -22,6 +23,8 @@ class CalculatorBrain {
                 case .UnaryOperation(let symbol, _):
                     return symbol
                 case .BinaryOperation(let symbol, _):
+                    return symbol
+                case .NullaryOperation(let symbol, _):
                     return symbol
                 }
                 
@@ -52,6 +55,7 @@ class CalculatorBrain {
         knownOps["√"] = Op.UnaryOperation("√", sqrt)
         knownOps["sin"] = Op.UnaryOperation("sin", sin)
         knownOps["cos"] = Op.UnaryOperation("cos", cos)
+        knownOps["π"] = Op.NullaryOperation("π", { M_PI })
     }
     
     func performOperation(symbol: String) -> Double? {
@@ -83,6 +87,8 @@ class CalculatorBrain {
                         return (operation(operand1, operand2), op2Evaluation.remainingOps)
                     }
                 }
+            case .NullaryOperation(_, let operation):
+                return (operation(), remainingOps)
             }
         }
         return(nil, ops)
