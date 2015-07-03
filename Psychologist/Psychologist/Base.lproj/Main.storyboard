@@ -5,6 +5,42 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Text View Controller-->
+        <scene sceneID="1O4-Z7-2qT">
+            <objects>
+                <viewController id="nBI-cF-b5s" customClass="TextViewController" customModule="Psychologist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gii-KU-5Q1"/>
+                        <viewControllerLayoutGuide type="bottom" id="FoX-aD-YWx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1RK-gO-yUs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uc6-zB-Flj">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Uc6-zB-Flj" secondAttribute="trailing" id="IcK-QG-IUy"/>
+                            <constraint firstItem="Uc6-zB-Flj" firstAttribute="leading" secondItem="1RK-gO-yUs" secondAttribute="leading" id="TGx-Ha-Alr"/>
+                            <constraint firstItem="Uc6-zB-Flj" firstAttribute="top" secondItem="1RK-gO-yUs" secondAttribute="top" id="XqZ-9y-0eK"/>
+                            <constraint firstItem="Uc6-zB-Flj" firstAttribute="bottom" secondItem="FoX-aD-YWx" secondAttribute="top" id="icX-MG-O70"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="Uc6-zB-Flj" id="G8k-5A-hJM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GSN-H9-u9u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1412" y="-393"/>
+        </scene>
         <!--Psychologist-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -23,7 +59,7 @@
                                     <constraint firstAttribute="width" constant="361" id="Yfz-cJ-yfe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQt-kI-IzJ">
@@ -140,10 +176,10 @@
             </objects>
             <point key="canvasLocation" x="-348" y="-1182"/>
         </scene>
-        <!--Happiness View Controller-->
+        <!--Diagnosed Happiness View Controller-->
         <scene sceneID="TRD-nt-8EH">
             <objects>
-                <viewController id="VvG-UG-rpZ" customClass="HappinessViewController" customModule="Psychologist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VvG-UG-rpZ" customClass="DiagnosedHappinessViewController" customModule="Psychologist" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rOR-Ar-Ql4"/>
                         <viewControllerLayoutGuide type="bottom" id="gd3-hq-ZbH"/>
@@ -178,7 +214,15 @@
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="OpF-rQ-flf"/>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="itR-OA-IVS"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="vLT-zM-XLX"/>
+                    <navigationItem key="navigationItem" id="vLT-zM-XLX">
+                        <barButtonItem key="rightBarButtonItem" title="History" id="5rp-Ig-stk">
+                            <connections>
+                                <segue destination="nBI-cF-b5s" kind="popoverPresentation" identifier="Show Diagnostic History" popoverAnchorBarButtonItem="5rp-Ig-stk" id="GUC-6d-9oz">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="faceView" destination="t3R-JO-9ta" id="gnY-3I-VJl"/>
@@ -231,7 +275,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QSK-cL-S31"/>
-        <segue reference="m5r-IV-47i"/>
+        <segue reference="zkt-9W-4O6"/>
+        <segue reference="apG-NW-glD"/>
     </inferredMetricsTieBreakers>
 </document>
